@@ -78,10 +78,11 @@ class _MyHomePageState extends State<HomePage>
               ),
               const Padding(
                 padding: EdgeInsets.all(8.0),
-                child: Text("Event for You"),
+                child: Text("Event for You",
+                  style: TextStyle(fontWeight: FontWeight.bold),),
               ),
               const EventCard2(
-                title: 'Event 2: Title',
+                title: 'Events: Title',
                 buttonText1: 'Invite',
                 priceText: '..... - .....INR',
                   backgroundImage: 'assets/image/OIP (1).jpg'
