@@ -18,8 +18,8 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v2  # Updated to v2 for better stability
         with:
-          java-version: '12'
-          distribution: 'zulu'
+          java-version: '1'
+          distribution: 'temurin'
       - name: Set up Flutter
         uses: subosito/flutter-action@v2  # Updated to v2 for better stability
         with:
