@@ -1,0 +1,43 @@
+on:
+  pull_request:
+    branches:
+      - branch1
+  push:
+    branches:
+      - branch1
+
+name: "Build and Release"
+
+jobs:
+  build:
+    name: Build and Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2  # Updated to v2 for better stability
+      - name: Set up JDK
+        uses: actions/setup-java@v2  # Updated to v2 for better stability
+        with:
+          java-version: '12'
+          distribution: 'zulu'
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2  # Updated to v2 for better stability
+        with:
+          channel: 'beta'
+          # flutter-version: '2.20.6'  # Uncomment if you want to specify a version
+      - name: Get Flutter dependencies
+        run: flutter pub get
+      - name: Show Flutter help
+        run: flutter -h
+      - name: Analyze Flutter project
+        run: flutter analyze
+      - name: Run Flutter tests
+        run: flutter test
+      - name: Build APK
+        run: flutter build apk --debug --split-per-abi
+      - name: Push to releases
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "build/app/outputs/apk/debug/*"
+          tag: v1.0.${{ github.run_number }}
+          token: ${{ secrets.Token }}
