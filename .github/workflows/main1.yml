@@ -14,7 +14,8 @@
         - uses: actions/checkout@v1
         - uses: actions/setup-java@2
           with:
-            java-version: '12.x'
+            java-version: '12'
+            distribution: 'zulu'
         - uses: actions/flutter-action@v1
           with:
             flutter-version: '2.20'
@@ -22,7 +23,7 @@
         - run: flutter test
         - run: flutter build apk --debug --split-per-abi
         - name: push to releases
-          uses: ncipollo/release-action@1
+          uses: ncipollo/release-action@2
           with:
             artifacts: "build/app/outputs/apk/debug/*"
             tag: v1.0.${{ github.run_number }}
