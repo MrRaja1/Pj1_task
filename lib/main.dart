@@ -20,10 +20,10 @@ class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  MyHomePageState createState() => MyHomePageState();
 }
 
-class _MyHomePageState extends State<HomePage>
+class MyHomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
@@ -102,7 +102,7 @@ class _MyHomePageState extends State<HomePage>
                   controller: _tabController,
                   children: [
         
-                    Center( child: ListView(
+                    const Center( child: ListView(
                       padding: EdgeInsets.all(8.0),
                       children: [
                         buildSection('Event 1'),
