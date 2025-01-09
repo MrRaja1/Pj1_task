@@ -102,8 +102,8 @@ class MyHomePageState extends State<HomePage>
                   controller: _tabController,
                   children: [
         
-                    const Center( child: ListView(
-                      padding: EdgeInsets.all(8.0),
+                     Center( child: ListView(
+                      padding: const EdgeInsets.all(8.0),
                       children: [
                         buildSection('Event 1'),
                         buildSection('Event 2'),
